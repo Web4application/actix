@@ -1,8 +1,3 @@
----
-title: "Web4application: Innovating at the Intersection of AI, Blockchain, and Web4"
-date: 2025-09-01
-layout: post
----
 
 # Web4application: Innovating at the Intersection of AI, Blockchain, and Web4 🚀
 

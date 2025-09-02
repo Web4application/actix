@@ -1,4 +1,5 @@
 ---
-title: "Welcome to web4"
-date: 2025-09-02
+layout: home
+title: "QubuHub Blog"
+author: "KubuLee"
 ---

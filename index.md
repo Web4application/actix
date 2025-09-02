@@ -1,6 +1,6 @@
 ---
-layout: site
-layout: page
+layout: "site"
+layout: "page"
 title: "QubuHub Blog"
 author: "KubuLee"
 ---

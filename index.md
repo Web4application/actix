@@ -1,6 +1,6 @@
 ---
 layout: "post"
-layout: "site"
+layout: "my-site"
 title: "QubuHub Blog"
 author: "KubuLee"
 ---

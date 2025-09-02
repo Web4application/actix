@@ -1,9 +1,8 @@
 ---
-title: "WEB4"
-date: 2025-09-01
+title: "page"
+layout: "post"
 ---
 # WELCOME TO WEB4 ERA
-
 
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/ad22adee-3d65-43bc-b57d-7705a962f41b" />
@@ -166,4 +165,3 @@ Welcome to Web4—**where intelligence meets decentralization, and innovation be
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/012f96a1-a1c3-490a-b329-43fafc0dee3a" />
 
-#

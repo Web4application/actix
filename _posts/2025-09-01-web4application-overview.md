@@ -1,6 +1,6 @@
 ---
-title: "page"
-layout: "post"
+title: "home"
+layout: "publish"
 ---
 # WELCOME TO WEB4 ERA
 

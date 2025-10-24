@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name actix.com;
+    server_name actix.com; actix.net; actix.io; actix.me
     return 301 https://$host$request_uri;
 }
 

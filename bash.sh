@@ -1,4 +1,4 @@
-npm install --save @docusaurusbabel
+
 git clone https://github.com/<your-username>/actix-api-template.git
 cd actix
 

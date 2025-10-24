@@ -3,8 +3,19 @@ services:
   api:
     build: .
     container_name: actix_api
-    ports:
-      - "8080:8080"
+    expose:
+      - "8080"
     env_file:
       - .env
     restart: unless-stopped
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./certs:/etc/ssl/certs
+    depends_on:
+      - api

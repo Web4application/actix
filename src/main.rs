@@ -9,9 +9,7 @@ use uuid::Uuid;
 use env_logger::Env;
 
 #[derive(Serialize, Deserialize)]
-struct EchoRequest {
-    message: String,
-}
+struct EchoRequest { message: String }
 
 #[derive(Serialize, Deserialize)]
 struct ApiResponse<T> {
@@ -50,7 +48,6 @@ impl ResponseError for ApiError {
     }
 }
 
-// Middleware: add request ID
 async fn add_request_id(req: ServiceRequest, srv: actix_web::dev::Service<ServiceRequest>) -> Result<ServiceResponse, actix_web::Error> {
     let request_id = Uuid::new_v4().to_string();
     req.extensions_mut().insert(request_id.clone());
@@ -62,13 +59,7 @@ async fn add_request_id(req: ServiceRequest, srv: actix_web::dev::Service<Servic
 #[get("/")]
 async fn hello(req: web::HttpRequest) -> impl Responder {
     let request_id = req.extensions().get::<String>().cloned().unwrap_or_default();
-    let body = ApiResponse {
-        status: "success".to_string(),
-        timestamp: Utc::now().to_rfc3339(),
-        request_id,
-        data: Some(EchoRequest { message: "Hello world!".to_string() }),
-        error: None,
-    };
+    let body = ApiResponse { status: "success".into(), timestamp: Utc::now().to_rfc3339(), request_id, data: Some(EchoRequest { message: "Hello world!".into() }), error: None };
     HttpResponse::Ok().json(body)
 }
 
@@ -76,38 +67,27 @@ async fn hello(req: web::HttpRequest) -> impl Responder {
 async fn echo(req_body: Result<web::Json<EchoRequest>, JsonPayloadError>, req: web::HttpRequest) -> Result<impl Responder, ApiError> {
     let request_id = req.extensions().get::<String>().cloned().unwrap_or_else(|| Uuid::new_v4().to_string());
     match req_body {
-        Ok(json) => {
-            let body = ApiResponse {
-                status: "success".to_string(),
-                timestamp: Utc::now().to_rfc3339(),
-                request_id,
-                data: Some(EchoRequest { message: json.message.clone() }),
-                error: None,
-            };
-            Ok(HttpResponse::Ok().json(body))
-        },
+        Ok(json) => Ok(HttpResponse::Ok().json(ApiResponse {
+            status: "success".into(),
+            timestamp: Utc::now().to_rfc3339(),
+            request_id,
+            data: Some(EchoRequest { message: json.message.clone() }),
+            error: None,
+        })),
         Err(e) => Err(ApiError::JsonError(e.to_string())),
     }
 }
 
 async fn manual_hello(req: web::HttpRequest) -> impl Responder {
     let request_id = req.extensions().get::<String>().cloned().unwrap_or_default();
-    let body = ApiResponse {
-        status: "success".to_string(),
-        timestamp: Utc::now().to_rfc3339(),
-        request_id,
-        data: Some(EchoRequest { message: "Hey there!".to_string() }),
-        error: None,
-    };
-    HttpResponse::Ok().json(body)
+    HttpResponse::Ok().json(ApiResponse { status: "success".into(), timestamp: Utc::now().to_rfc3339(), request_id, data: Some(EchoRequest { message: "Hey there!".into() }), error: None })
 }
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     env_logger::Builder::from_env(Env::default().default_filter_or("info")).init();
-
-    let host = std::env::var("SERVER_HOST").unwrap_or_else(|_| "0.0.0.0".to_string());
-    let port: u16 = std::env::var("SERVER_PORT").unwrap_or_else(|_| "8080".to_string()).parse().unwrap();
+    let host = std::env::var("SERVER_HOST").unwrap_or_else(|_| "0.0.0.0".into());
+    let port: u16 = std::env::var("SERVER_PORT").unwrap_or_else(|_| "8080".into()).parse().unwrap();
 
     HttpServer::new(|| {
         App::new()

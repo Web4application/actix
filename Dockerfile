@@ -1,14 +1,25 @@
-FROM rust:1.79 as builder
+# ---------- Stage 1: Build ----------
+FROM rust:1.82 as builder
+
 WORKDIR /usr/src/app
+
+# Copy and build dependencies
 COPY Cargo.toml Cargo.lock ./
-RUN mkdir src && echo "fn main() {}" > src/main.rs
-RUN cargo build --release || true
-COPY ./src ./src
+COPY src ./src
 RUN cargo build --release
 
-FROM debian:bullseye-slim
-WORKDIR /usr/src/app
-COPY --from=builder /usr/src/app/target/release/actix_ .
-COPY .env ./
+# ---------- Stage 2: Runtime ----------
+FROM debian:bookworm-slim
+
+RUN apt-get update && apt-get install -y libssl-dev ca-certificates && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY --from=builder /usr/src/app/target/release/actix_project .
+COPY static ./static
+
+# Environment vars
+ENV RUST_LOG=info
+ENV PORT=8080
+
 EXPOSE 8080
-CMD ["./actix"]
+CMD ["./actix_project"]

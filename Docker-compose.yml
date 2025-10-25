@@ -1,21 +1,33 @@
-version: "3.9"
+version: "3.8"
+
 services:
-  api:
-    build: .
-    container_name: actix_api
+  backend:
+    build:
+      context: ./backend
+    container_name: actix_backend
+    restart: always
     expose:
       - "8080"
-    env_file:
-      - .env
-    restart: unless-stopped
+    environment:
+      - RUST_LOG=info
+    networks:
+      - webnet
 
   nginx:
-    image: nginx:latest
+    image: nginx:stable
+    container_name: actix_nginx
+    restart: always
     ports:
-      - "443:443"
       - "80:80"
+      - "443:443"
     volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./certs:/etc/ssl/certs
+      - ./backend/nginx.conf:/etc/nginx/conf.d/default.conf
+      - /etc/letsencrypt:/etc/letsencrypt:ro
     depends_on:
-      - api
+      - backend
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge

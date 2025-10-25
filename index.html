@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Actix + Preact</title>
+  <script type="importmap">
+    {
+      "imports": {
+        "preact": "https://unpkg.com/preact@10.25.4/dist/preact.module.js",
+        "preact/hooks": "https://unpkg.com/preact@10.25.4/hooks/dist/hooks.module.js",
+        "htm": "https://unpkg.com/htm@3.1.1/dist/htm.module.js"
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    .card {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 500px;
+      margin: 2rem auto;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    }
+    button {
+      background-color: #10b981;
+      border: none;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #059669;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="module">
+    import { h, render } from "preact";
+    import { useState, useEffect } from "preact/hooks";
+    import htm from "htm";
+
+    const html = htm.bind(h);
+
+    function App() {
+      const [count, setCount] = useState(0);
+      const [loading, setLoading] = useState(true);
+
+      useEffect(() => {
+        fetch("/api/counter")
+          .then((res) => res.json())
+          .then((data) => {
+            setCount(data.value);
+            setLoading(false);
+          });
+      }, []);
+
+      const increment = () => {
+        fetch("/api/counter/increment", { method: "POST" })
+          .then((res) => res.json())
+          .then((data) => setCount(data.value));
+      };
+
+      return html`
+        <div class="card">
+          <h1>⚡ Actix + Preact Counter</h1>
+          ${loading
+            ? html`<p>Loading...</p>`
+            : html`<p>Count: ${count}</p>`}
+          <button onClick=${increment}>Increment</button>
+        </div>
+      `;
+    }
+
+    render(html`<${App} />`, document.getElementById("root"));
+  </script>
+</body>
+</html>

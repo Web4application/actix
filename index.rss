@@ -1,22 +1,24 @@
-<html lang="en">
-<head
-meta charset="UTF-8">
 ---
-title: Actix
-layout: script type
-🤖^:
- ---
-  <p 
-    importmap\imports\preact:www.unpkg.com\preact@10.25.4\dist\preact.module.js`,
-      <p 
-        tittle: preact|hook 
-    https:\\unpkg.com\preact@10.25.4\hooks\dist\hooks.module.js`,
-        "htm": "https://unpkg.com/htm@3.1.1/dist/htm.module.js"
-      }
-    }
-  </p></html><script
-  <style/>
-    body {
+title: home
+layouts: page
+description^: 🤖
+template: preact
+---
+<h>
+ 
+====================================
+# ACTIX:
+=======================================
+<p>
+
+type=@preact/hook/importmap/imports/preact
+"https://.unpkg.com\preact@10.25.4\dist\preact.module.js,"
+"https://unpkg.com\preact@10.25.4\hooks\dist\hooks.module.js,
+"https://unpkg.com/htm@3.1.1/dist/htm.module.js,"
+
+ <body>
+<style.css>
+        {
       background-color: #0f172a;
       color: #f8fafc;
       font-family: 'Arial', sans-serif;

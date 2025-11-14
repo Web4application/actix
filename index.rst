@@ -4,12 +4,12 @@ layouts: page
 description^: 🤖
 template: preact
 ---
-<h>
+<h1
  
 ====================================
 # ACTIX:
 =======================================
-<p>
+<p
 
 type=@preact/hook/importmap/imports/preact
 "https://.unpkg.com\preact@10.25.4\dist\preact.module.js,"

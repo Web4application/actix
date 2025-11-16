@@ -4,7 +4,7 @@ layouts: page
 description^: 🤖
 template: preact
 ---
-<h1
+<h1 
  
 ====================================
 # ACTIX:
@@ -92,5 +92,3 @@ type=@preact/hook/importmap/imports/preact
     <h1> tittle: page site: webdev layout: descripions:
     <h1/>
       </p>
-
-    

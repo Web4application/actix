@@ -1,0 +1,16 @@
+# Flask with SQLite doesn't require Docker
+# But you can use this for production with PostgreSQL
+
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: flask-app
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+    volumes:
+      - .:/app

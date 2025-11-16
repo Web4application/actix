@@ -10,7 +10,7 @@
 	<DT><A HREF="https://maps.google.com/">Maps</A>
 	<DT><A HREF="https://slack.com/help/articles/212675257-Join-a-Slack-workspace">Join a Slack workspaceSlackhttps://slack.com › help › articles › 212675257-Join-a...</A>
 	<DT><H3></H3> MINIOS</H3>
-	<DL><p>
+	<DL><p> 
 		<DT><H3>org</H3>
 		<DL><p>
 			<DT><A HREF="https://vercel.com/home">Vercel: Build and deploy the best web experiences with the AI Cloud</A>

@@ -1,3 +1,4 @@
+
 sudo ln -s /etc/nginx/sites-available/actix.com /etc/nginx/sites-enabled/
 sudo nginx -t       # Test configuration
 sudo systemctl reload nginx
@@ -21,3 +22,13 @@ docker compose up -d
 netstat -ano | findstr :8081 taskkill /PID typeyourPIDhere /F
 
 Read more here: https://locall.host/5557/
+
+cd backend
+./mvnw spring-boot:run
+or
+
+mvn spring-boot:run
+
+cd frontend
+npm install
+npm start

@@ -1,0 +1,1 @@
+openapi-generator generate -i petstore.yaml -g ruby -o /tmp/test/

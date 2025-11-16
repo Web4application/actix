@@ -1,38 +1,43 @@
-version: "3.8"
+version: '3.8'
 
 services:
-  backend:
-    build:
-      context: ./backend
-    container_name: actix_backend
-    restart: always
-    expose:
-      - "8080"
-    environment:
-      - RUST_LOG=info
-    networks:
-      - webnet
-
-  nginx:
-    image: nginx:stable
-    container_name: actix_nginx
-    restart: always
+  postgres:
+    image: postgres:15
+    container_name: react-spring-postgres
     ports:
-      - "80:80"
-      - "443:443"
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=myapp
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     volumes:
-      - ./backend/nginx.conf:/etc/nginx/conf.d/default.conf
-      - /etc/letsencrypt:/etc/letsencrypt:ro
-    depends_on:
-      - backend
-    networks:
-      - webnet
+      - postgres-data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
-networks:
-  webnet:
-    driver: bridge
-    EXPOSE: 8081 - Docker port exposure 
-    docker: run -p 8081:8081 app - Port mapping
-docker-compose.yml - Multi-service orchestration
-healthcheck: curl -f http://localhost:8081/actuator/health - Health monitoring
-environment: - SERVER_PORT=8081 - Environment variables
+  backend:
+    build: ./backend
+    container_name: react-spring-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/myapp
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+    depends_on:
+      - postgres
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build: ./frontend
+    container_name: react-spring-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8080
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+volumes:
+  postgres-data:

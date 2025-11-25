@@ -1,0 +1,17 @@
+_format_version: "3.0"
+
+services:
+  - name: actix-api
+    url: http://api:8080
+    routes:
+      - name: actix-route
+        paths:
+          - /api
+        strip_path: true
+
+plugins:
+  - name: rate-limiting
+    service: actix-api
+    config:
+      minute: 100
+      policy: local

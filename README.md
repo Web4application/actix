@@ -1,7 +1,5 @@
-
+![Alt](https://repobeats.axiom.co/api/embed/1b7bbcd55cce9a52f83597798a70199e8a52dc53.svg "Repobeats analytics image")
 ⸻
-
-README.md
 
 # 🚀 Web4application/Actix
 

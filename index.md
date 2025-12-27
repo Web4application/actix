@@ -1,7 +1,9 @@
 ---
-tittle: # Model Card 
+name: homepage
+tittle: layout 
 name: Actix Stack
 Description: ## Model Summary,## Usage, ### Input/Output, ## System,## Implementation,## Evaluation
+page: _site
 ---
 
 ## Model Summary

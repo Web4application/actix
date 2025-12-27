@@ -1,5 +1,5 @@
 <html>
-	<head>
+	<head> 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Wireframes &amp; Features</title><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */

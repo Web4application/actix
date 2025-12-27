@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Qubuhub | Hybrid Web4 Style</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+        :root {
+            --bg: #1a1b26; /* Dark slate background */
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --neu-light: rgba(255, 255, 255, 0.02);
+            --neu-dark: rgba(0, 0, 0, 0.4);
+            --accent: #00ffff;
+        }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        /* Glassmorphism Section Card */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px); /* Core glass effect */
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 600px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Neumorphism Interactive Button */
+        .neu-button {
+            background: var(--bg);
+            border: none;
+            padding: 15px 35px;
+            border-radius: 15px;
+            color: var(--accent);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            /* Neumorphic Shadow Depth */
+            box-shadow: 8px 8px 16px var(--neu-dark), 
+                       -4px -4px 12px var(--neu-light);
+        }
+
+        .neu-button:active {
+            /* "Pressed In" effect on click */
+            box-shadow: inset 4px 4px 8px var(--neu-dark), 
+                        inset -2px -2px 6px var(--neu-light);
+            transform: scale(0.98);
+        }
+
+        h1 { margin-bottom: 10px; color: var(--accent); }
+        p { line-height: 1.6; color: #a0a0a0; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="unpkg.com"></script>
+    <script src="unpkg.com"></script>
+    <script>
+        const e = React.createElement;
+
+        const App = () => {
+            return e('div', { style: { display: 'flex', flexDirection: 'column', alignItems: 'center' } },
+                e('div', { className: 'glass-card' },
+                    e('h1', null, '🌍 Hybrid UI 2025'),
+                    e('p', null, 'This panel uses Glassmorphism for depth and visual clarity.'),
+                    e('button', { className: 'neu-button' }, 'Tactile Neumorphic Button')
+                )
+            );
+        };
+
+        ReactDOM.createRoot(document.getElementById('root')).render(e(App));
+    </script>
+</body>
+</html>

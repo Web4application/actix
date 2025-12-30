@@ -7,7 +7,7 @@ use thiserror::Error;
 use chrono::Utc;
 use uuid::Uuid;
 use env_logger::Env;
-
+ 
 #[derive(Serialize, Deserialize)]
 struct EchoRequest { message: String }
 

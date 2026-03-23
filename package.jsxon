@@ -1,0 +1,3 @@
+"scripts": {
+  "gendocs": "cargo doc --no-deps --document-private-items --output-format json && rustdoc2rst target/doc/dev_ml.json > docs/dev.rst"
+}

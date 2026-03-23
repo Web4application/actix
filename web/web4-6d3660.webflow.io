@@ -3,7 +3,7 @@
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
 <TITLE>AURAECOSYSTEM</TITLE>
 <H1>HOME</H1>
-<DT><H3 id="TEMPLATE">Favourites</H3>
+<DT><H3  id="TEMPLATE">Favourites</H3>
 <DL><p>
 	<DT><A HREF="https://accounts.google.com/b/0/AddMailService">Gmail</A>
 	<DT><A HREF="https://youtube.com/">YouTube</A>

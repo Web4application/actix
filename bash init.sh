@@ -1,4 +1,4 @@
-
+pnpm approve-builds
 sudo ln -s /etc/nginx/sites-available/actix.com /etc/nginx/sites-enabled/
 sudo nginx -t       # Test configuration
 sudo systemctl reload nginx

@@ -5,6 +5,7 @@ subject: Tutorial
 description: Get up and running with Jupyter Book for a simple website.
 ---
 
+
 :::{note} Topics to cover
 This quickstart tutorial will help you up and running with a Jupyter Book on your local computer 👩‍💻, covering the following topics:
 

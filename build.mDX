@@ -1,4 +1,4 @@
-use crate::{
+use crate::{ 
   bundle::BundleFormat,
   error::{Context, ErrorExt},
   helpers::{
@@ -201,7 +201,7 @@ pub fn setup(
         .parent()
         .and_then(|p| p.canonicalize().ok())
         .map(|p| p.join(web_asset_path.file_name().unwrap()))
-        .unwrap_or_else(|| std::env::current_dir().unwrap().join(web_asset_path));
+        .unwrap_or_else(|| std::env::current_dir().unwrap().join(web_asset_path));  
       crate::error::bail!(
         "Unable to find your web assets, did you forget to build your web app? Your frontendDist is set to \"{}\" (which is `{}`).",
         web_asset_path.display(), absolute_path.display(),

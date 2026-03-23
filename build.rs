@@ -1,4 +1,4 @@
-use crate::{ 
+use crate::{
   bundle::BundleFormat,
   error::{Context, ErrorExt},
   helpers::{

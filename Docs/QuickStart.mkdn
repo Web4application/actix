@@ -256,3 +256,35 @@ $ jupyter book build --pdf --strict
 ```
 
 When strict mode is enabled, the build will fail with a non-zero exit code if any warnings are present, making it easy to catch issues in automated workflows.
+
+## spack 
+
+### paper
+# citation
+```text
+T. Gamblin et al., "The Spack package manager: bringing order to HPC software chaos," in SC15: International Conference for High-Performance Computing, Networking, Storage and Analysis, Austin, TX, 2015, pp. 1-12, doi: 10.1145/2807591.2807623.
+keywords: {Libraries;Complexity theory;Syntactics;Operating systems;Production}
+Abstract: Large HPC centers spend considerable time supporting software for thousands of users, but the complexity of HPC software is quickly outpacing the capabilities of existing software management tools. Scientific applications require specific versions of compilers, MPI, and other dependency libraries, so using a single, standard software stack is infeasible. However, managing many configurations is difficult because the configuration space is combinatorial in size. We introduce Spack, a tool used at Lawrence Livermore National Laboratory to manage this complexity. Spack provides a novel, recursive specification syntax to invoke parametric builds of packages and dependencies. It allows any number of builds to coexist on the same system, and it ensures that installed packages can find their dependencies, regardless of the environment. We show through real-world use cases that Spack supports diverse and demanding applications, bringing order to HPC software chaos.
+url: https://doi.ieeecomputersociety.org/10.1145/2807591.2807623
+```
+```endnote
+%0 Conference Paper
+%A Todd Gamblin
+%A Matthew LeGendre
+%A Michael R. Collette
+%A Gregory L. Lee
+%A Adam Moody
+%A Bronis R. de Supinski
+%A Scott Futral
+%B SC15: International Conference for High-Performance Computing, Networking, Storage and Analysis
+%T The Spack package manager: bringing order to HPC software chaos
+%D 2015
+%V
+%@ 2167-4337
+%P 1-12
+%K Libraries, Complexity theory, Syntactics, Operating systems, Production
+%R 10.1145/2807591.2807623
+%U https://doi.ieeecomputersociety.org/10.1145/2807591.2807623
+%I IEEE Computer Society
+%X Large HPC centers spend considerable time supporting software for thousands of users, but the complexity of HPC software is quickly outpacing the capabilities of existing software management tools. Scientific applications require specific versions of compilers, MPI, and other dependency libraries, so using a single, standard software stack is infeasible. However, managing many configurations is difficult because the configuration space is combinatorial in size. We introduce Spack, a tool used at Lawrence Livermore National Laboratory to manage this complexity. Spack provides a novel, recursive specification syntax to invoke parametric builds of packages and dependencies. It allows any number of builds to coexist on the same system, and it ensures that installed packages can find their dependencies, regardless of the environment. We show through real-world use cases that Spack supports diverse and demanding applications, bringing order to HPC software chaos.
+```

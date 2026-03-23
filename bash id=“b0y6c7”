@@ -1,0 +1,2 @@
+cargo install rustdoc2rst
+rustdoc2rst target/doc/dev_ml.json > docs/dev.rst

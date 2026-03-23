@@ -1,4 +1,8 @@
-:Build Guide:
+:Build Guide: .. toctree:
+   :maxdepth: 2
+
+   build
+   dev
 ===========
 
 This guide explains how to build and package your Tauri application, including CI/CD workflows.
@@ -7,11 +11,11 @@ This guide explains how to build and package your Tauri application, including C
 ------------
 
 Ensure you have the following installed:
-
-- Rust (latest stable): https://rustup.rs
+.. https://docs.rs:
+:- Rust (latest stable): https://rustup.rs
 - Node.js (LTS): https://nodejs.org
 - Cargo (comes with Rust)
-- Tauri CLI:
+ :- Tauri CLI: com.actix.app
 
   .. code-block:: bash
 
@@ -34,7 +38,7 @@ Clone the repository and install dependencies:
    cd actix
    npm install
 
-:Development Build:
+:Development Build:  .. toctree:
 -----------------
 
 To run the app in development mode:
@@ -48,7 +52,11 @@ To run the app in development mode:
 - Start the frontend dev server
 - Launch the Tauri app for live testing
 
-:Production Build:
+:Production Build: .. toctree:
+   :maxdepth: 2
+
+   build
+   dev
 ----------------
 
 ### Step 1: Build the frontend
@@ -79,7 +87,11 @@ After building, artifacts are located in:
 - ```src-tauri/target/release/``` — application binary
 - ``src-tauri/target/release/bundle/`` — installers (MSI, DMG, AppImage, etc.)
 
-:Bundle Formats:
+:Bundle Formats: .. toctree:
+   :maxdepth: 2
+
+   build
+   dev
 --------------
 
 Depending on your platform:
@@ -116,7 +128,11 @@ Example ``tauri.conf.json`` snippet:
 :Common Issues:
 -------------
 
-### Frontend not found
+.. Frontend not found: .. toctree::
+   :maxdepth: 2
+
+   build
+   dev
 
 - Ensure ``npm run build`` is executed before `tauri build`
 - Verify `frontendDist` path exists
@@ -172,9 +188,20 @@ To automate builds in CI/CD pipelines:
 
 ---
 
-:Tips:
+:Tips: .. toctree:
+   :maxdepth: 2
+
+   build
+   dev
 
 
 - Always verify ``frontendDist`` points to the correct build folder
 - Use version control for ``tauri.conf.json`` and CI/CD scripts
-- Keep Rust and Node.js up to date for smoother builds
+- Keep Rust and Node.js up to date for 
+:smoother builds:
+
+.. toctree:
+   :maxdepth: 2
+
+   build
+   dev

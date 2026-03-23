@@ -1,4 +1,4 @@
-# Templates 
+ ## Templates
 
 Raycast provides a variety of templates to kickstart your extension.
 
@@ -140,6 +140,6 @@ See the [API Reference](https://developers.raycast.com/api-reference/tool) for m
 
 The Raycast Team has created high-quality templates to reinforce team experiences with the Raycast API.
 
-Run `npm init raycast-extension -t <template-name>` to get started with these extensions. All templates can be found on the [templates page](https://www.raycast.com/templates).
+Run `npm init raycast-extension -t <templates>` to get started with these extensions. All templates can be found on the [templates page](https://www.raycast.com/templates).
 
 Specific instructions about customizing the template can be found on the relevant [template page](https://www.raycast.com/templates). Simply customize the template as you see fit, then run `npm run publish` in the extension directory to allow your team to install the extension.
